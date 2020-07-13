@@ -2050,7 +2050,6 @@ run(void)
 				(handler[ev.type])(&ev);
 		}
 
-<<<<<<< HEAD
 		/*
 		 * To reduce flicker and tearing, when new content or event
 		 * triggers drawing, we first wait a bit to ensure we got
@@ -2066,16 +2065,6 @@ run(void)
 			if (!drawing) {
 				trigger = now;
 				drawing = 1;
-=======
-		if (dodraw) {
-			while (XPending(xw.dpy)) {
-				XNextEvent(xw.dpy, &ev);
-				if (XFilterEvent(&ev, None))
-					continue;
-				if (handler[ev.type]) {
-					(handler[ev.type])(&ev);
-				}
->>>>>>> 736a2f2... Add vimBrowse patch
 			}
 			timeout = (maxlatency - TIMEDIFF(now, trigger)) \
 			          / maxlatency * minlatency;
